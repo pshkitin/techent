@@ -53,7 +53,7 @@ class User(TimeStampMixin, UserMixin, Document):
         if auth_token:
             return cls.objects(auth_hash=sha224(auth_token).hexdigest()).first()
         if user_id:
-            return User.objects(id=user_id).first()
+            return User.objects(user_id=user_id).first()
 
     ### Flask-Login methods:
 

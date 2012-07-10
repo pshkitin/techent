@@ -52,8 +52,8 @@ def google_oauth_authorized(resp):
 
     user_id = me.data.get('id')
 
-    google_user = User.get(user_id=user_id)
-    if not google_user:
+    user = User.get(user_id=user_id)
+    if not user:
 
         first_name = me.data.get('given_name')
         last_name = me.data.get('family_name')
@@ -64,22 +64,17 @@ def google_oauth_authorized(resp):
         plus_link = me.data.get('link')
         avatar_url = me.data.get('picture')
 
-        user = User(email=email, full_name=full_name, avatar_url=avatar_url)
-        user.save()
-
-        google_user = User(user_id=user_id, first_name=first_name, last_name=last_name,
+        user = User(user_id=user_id, first_name=first_name, last_name=last_name,
             full_name=full_name, gender=gender, locale=locale, email=email, plus_link=plus_link, avatar_url=avatar_url,
-            access_token=access_token, refresh_token=refresh_token, expires_in=expires_in, user=user)
-        google_user.save()
+            access_token=access_token, refresh_token=refresh_token, expires_in=expires_in)
+        user.save()
     else:
-        google_user.access_token = access_token
+        user.access_token = access_token
 
         if refresh_token:
-            google_user.refresh_token = refresh_token
+            user.refresh_token = refresh_token
 
-        google_user.expires_in = expires_in
-        google_user.save()
-
-        user = google_user.user
+        user.expires_in = expires_in
+        user.save()
 
     login_user(user)

@@ -10,8 +10,8 @@ IMAGES_PATH = p.join(p.dirname(p.abspath(__file__)), 'static', 'images')
 # path to the directory with resized images
 THUMB_PATH  = p.join(p.dirname(p.abspath(__file__)), 'static', 'thumbnails')
 
-GOOGLE_APP_ID = ""
-GOOGLE_APP_SECRET = ""
+GOOGLE_APP_ID = "579528667694.apps.googleusercontent.com"
+GOOGLE_APP_SECRET = "-OnDViIddIiwasvU9rV293DT"
 
 try:
     from local_config import *
