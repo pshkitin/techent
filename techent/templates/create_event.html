@@ -1,0 +1,24 @@
+{% extends "_layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+{#{% block nav %}{% endblock %}#}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span6 offset3">
+            <div id="signin" class="well">
+                <form method="POST" enctype="multipart/form-data">
+                   {{ render_field(form.subject)  }} 
+                   {{ render_field(form.logo)  }} 
+                   {{ render_field(form.start_date)  }} 
+                   {{ render_field(form.end_date)  }} 
+                   {{ render_field(form.description)  }} 
+                   {{ render_field(form.location)  }} 
+                   {{ render_field(form.tags)  }}
+                    <button type="submit" class="btn large">Create event</button>
+                </form>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

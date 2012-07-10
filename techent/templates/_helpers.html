@@ -1,0 +1,7 @@
+{% macro nav_link(endpoint, name) %}
+    {%- if url_for(endpoint, **kwargs) == request.script_root + request.path -%}
+        <a class="active" href="{{ url_for(endpoint, **kwargs) }}">{{ name }}</a>
+    {%- else -%}
+        <a href="{{ url_for(endpoint, **kwargs) }}">{{ name }}</a>
+    {%- endif -%}
+{% endmacro %}

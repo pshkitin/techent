@@ -1,0 +1,39 @@
+{% extends "_layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block content %}
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="span9 centered">
+
+                    <h1>Events</h1>
+                    <p>
+                        Read more detailed description below or Sign Up.
+                    </p>
+                </div>
+                <div class="span3 buttons">
+
+                    <button class="btn-auth btn-google">
+                        <a href="{{ url_for('oauth.google_login') }}" class="btn">Sign up with <strong>Google</strong></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div  class="container">
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="span8" id='events'>
+                    <h2>Last Events</h2>
+                    <ul id='events-list'>
+                        Here should be events list
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

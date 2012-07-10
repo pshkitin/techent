@@ -1,0 +1,39 @@
+{% macro with_errors ( field ) %}
+    <div class="form_field">
+        {% if field.errors %}
+            {% set css_class = 'has_error ' + kwargs.pop('class' , '') %}
+            {{ field(class=css_class, **kwargs) }}
+            <ul class="errors">
+                {% for error in errors %}
+                    <li>{{ error|e }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{ field(**kwargs) }}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro render_field(field) %}
+<div class="clearfix">
+    {{ field.label }}
+    <div class="input">
+      {{ field(**kwargs)|safe }}
+      {% if field.errors %}
+        {% for error in field.errors %}<span class="help-block error">{{ error }}</span>{% endfor %}
+      {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro render_field(field, silent=False) %}
+<div class="clearfix">
+    {{ field.label }}
+    <div class="input{% if not silent and field.errors %} control-group error{% endif %}">
+      {{ field(**kwargs)|safe }}
+      {% if not silent and field.errors %}
+        {% for error in field.errors %}<span class="help-inline">{{ error }}</span>{% endfor %}
+      {% endif %}
+    </div>
+</div>
+{% endmacro %}
