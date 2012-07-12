@@ -1,0 +1,119 @@
+* {
+    outline: none;
+}
+
+body {
+    font-size: 9pt;
+}
+
+.site-head {
+    font-size: 2em;
+    padding: 1em;
+    margin-bottom: 0.15em;
+}
+
+.site-toolbox {
+    float: left;
+    width: 13%;
+    margin-right: 0.3em;
+}
+
+.site-header {
+    padding: 0.3em;
+}
+
+.site-tool {
+    padding: 0.2em;
+    margin-bottom: 0.3em;
+    margin-right: 0.3em;
+}
+
+.site-tool-header {
+    padding: 0.3em;
+    text-align: center;
+}
+
+div.site-calendar {
+    margin-left: 13%;
+    padding: 0.2em;
+}
+
+table.site-calendar {
+    width: 100%;
+    padding: 0;
+}
+
+table.site-calendar tr td {
+    width: 14.29%;
+    font-size: 0.8em;
+    vertical-align: top;
+}
+
+div.site-day-date {
+    font-weight: bold;
+    color: #aaaaaa;
+}
+
+td.site-day-past {
+    background: #ffffff;
+}
+
+td.site-day-today {
+    background: #dbffdb;
+}
+
+span.site-day-time {
+    font-weight: bold;
+}
+
+.site-event-details-header {
+    font-size: 1.5em;
+    margin: 0 0 0.3em 0;
+}
+
+.site-event-details-label {
+    color: #aaaaaa;
+    font-weight: bold;
+}
+
+#messages-container {
+    margin: 0 5%;
+}
+
+.site-message {
+    padding: 0.2em;
+    font-size: 1.2em;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid;
+    margin-bottom: 0.3em;
+}
+
+.site-message-info {
+    background: #a7c0ee;
+    border-color: #6495ed;
+}
+
+.site-message-success {
+    background: #adeda6;
+    border-color: #71ed64;
+}
+
+.site-message-error {
+    background: #eea7a7;
+    border-color: #ed6464;
+}
+
+.site-message-close {
+    font-size: 0.5em;
+    float: right;
+}
+
+/*.site-icon {*/
+    /*display: inline !important;*/
+/*}*/
+
+/*.site-transfer {*/
+    /*border: solid red 1px;*/
+    /*background-color: red;*/
+/*}*/

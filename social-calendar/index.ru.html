@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" href="jquery/css/custom/jquery-ui-1.8.16.custom.css" rel="Stylesheet"/>
+    <link type="text/css" href="jquery/css/uniform.default.css" rel="Stylesheet"/>
+    <link type="text/css" href="css/site.css" rel="Stylesheet"/>
+    <script type="text/javascript" src="jquery/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="jquery/js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="jquery/js/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script type="text/javascript" src="js/locale.js"></script>
+    <script type="text/javascript" src="js/locale.ru.js"></script>
+    <script type="text/javascript" src="js/event.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
+    <script type="text/javascript" src="js/messages.js"></script>
+    <script type="text/javascript">
+
+        function onEventsLoad(events) {
+            var cal = new globalCalendar.calendar.Calendar({ date: new Date() });
+            for (var i in events) {
+                cal.addEvent(new globalCalendar.event.Event(events[i]));
+            }
+            cal.appendTo($('#calendar'));
+        }
+
+        $(document).ready(function() {
+            $('.site-head').text(_getT('Global Calendar'));
+            jQuery.getJSON("sample_events.json", {}, onEventsLoad);
+            window.setTimeout(function () {
+                globalCalendar.info('Message with <b>HTML</b> <i>formating</i> witch newer hides');
+            }, 5000);
+        });
+
+    </script>
+</head>
+<body>
+<div id="site-head" class="site-head ui-widget-header ui-corner-all ui-helper-clearfix">Global Calendar</div>
+<div id="messages-container"></div>
+<div class="site-content">
+    <div class="site-toolbox ui-helper-clearfix">
+        <div class="site-tool ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+            <div class="ui-widget-header ui-helper-clearfix ui-corner-all">Filter</div>
+            <div>empty</div>
+        </div>
+        <div class="site-tool ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+            <div class="ui-widget-header ui-helper-clearfix ui-corner-all">Login</div>
+            <div>empty</div>
+        </div>
+        <div class="site-tool ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+            <div class="ui-widget-header ui-helper-clearfix ui-corner-all">Actions</div>
+            <div>
+                <div>You have logged in as rlz.</div>
+                <button id="add-event">Add event</button>
+                <button id="my-events">My events</button>
+                <button id="logout">Logout</button>
+                <script type="text/javascript">
+                    $('#add-event').button({ icons: { primary: 'ui-icon-plus' } });
+                    $('#my-events').button({ icons: { primary: 'ui-icon-grip-solid-horizontal' } });
+                    $('#logout').button({ icons: { primary: 'ui-icon-key' } });
+                </script>
+            </div>
+        </div>
+    </div>
+    <div id="calendar" class="ui-widget ui-widget-content ui-corner-all ui-helper-clearfix site-calendar">
+    </div>
+</div>
+</body>
+</html>

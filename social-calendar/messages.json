@@ -1,0 +1,14 @@
+[
+    {
+        "type": "info",
+        "text": "Sample info message"
+    },
+    {
+        "type": "success",
+        "text": "Sample success message"
+    },
+    {
+        "type": "error",
+        "text": "Sample error message"
+    }
+]

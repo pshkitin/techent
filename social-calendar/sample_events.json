@@ -1,0 +1,88 @@
+[
+    {
+        "id": 123,
+        "author": {
+            "id": 867,
+            "login": "rlz",
+            "firstName": "Dmitry",
+            "lastName": "Maslennikov",
+            "displayName": "Dmitry Maslennikov"
+        },
+        "title": "Wake Up!",
+        "location": {
+            "id": 777,
+            "country": "Russia",
+            "city": "Moscow"
+        },
+        "category": {
+            "id": 13,
+            "representation": "Home Events/Other"
+        },
+        "startDate": "11 Oct 2011 20:00 GMT+0400",
+        "duration": 270,
+        "address": "Москва, мкр. Северное Чертаново, 8к831",
+        "addressRoots": "Желтая дверь, 4 этаж",
+        "fee": [200, "RUB"],
+        "description": "bla bla bla",
+        "contacts": [
+            {
+                "description": "General information",
+                "email": "info@foo.com",
+                "phone": "+72223452311"
+            },
+            {
+                "description": "Booking",
+                "email": "book@foo.com",
+                "url": "http://www.foo.com/events/WakeUp/book"
+            }
+        ],
+        "urls": [
+            "http://vkontakte.ru/id12435265436",
+            "http://facebook.com/ggg",
+            "http://other.ru/link"
+        ]
+    },
+    {
+        "id": 124,
+        "author": {
+            "id": 867,
+            "login": "rlz",
+            "firstName": "Dmitry",
+            "lastName": "Maslennikov",
+            "displayName": "Dmitry Maslennikov"
+        },
+        "title": "Other event!",
+        "location": {
+            "id": 777,
+            "country": "Russia",
+            "city": "Moscow"
+        },
+        "category": {
+            "id": 13,
+            "representation": "Home Events/Other"
+        },
+        "startDate": "11 Oct 2011 12:30 GMT+0400",
+        "duration": 120,
+        "address": "Moscow, HZ, 11",
+        "addressRoots": "Some info",
+        "fee": [200, "EUR"],
+        "description": "bla bla bla",
+        "contacts": [
+            {
+                "description": "General information",
+                "email": "info@foo.com",
+                "phone": "+72223452311"
+            },
+            {
+                "description": "Booking",
+                "email": "book@foo.com",
+                "url": "http://www.foo.com/events/WakeUp/book"
+            }
+        ],
+        "urls": [
+            "http://vkontakte.ru/id12435265436",
+            "http://facebook.com/ggg",
+            "http://other.ru/link"
+        ]
+    }
+]
