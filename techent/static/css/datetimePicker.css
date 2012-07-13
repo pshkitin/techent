@@ -1,0 +1,98 @@
+/* Global picker div */
+div.picker_div {
+    background-color: #ffffff;
+    display: inline-block;
+}
+
+/* div for datetime picker when picker is made not in table */
+div.picker_datetime_div {
+    background-color: #ffffff;
+    display: inline;
+
+    margin-right: 30pt;
+}
+
+/* div for duration picker when picker is made not in table */
+div.picker_duration_div {
+    background-color: #ffffff;
+    display: inline;
+}
+
+/* Table for picker. Datetime and duration pickers are in the one table. */
+table.picker_table {
+    border-color: #e3a345;
+    border-radius: 5pt;
+    border-width: 5pt;
+    background-color: #84a5bf;
+}
+
+/* When datetime and duration pickers are in the one table.
+    Common style for tr in that table.*/
+tr.picker_tr {
+
+}
+
+/* When datetime and duration pickers are in the one table.
+    tr style for datetime in that table.*/
+tr.picker_datetime_tr {
+
+}
+
+/* When datetime and duration pickers are in the one table.
+    tr style for duration in that table.*/
+tr.picker_duration_tr {
+
+}
+
+/* When pickers embedded to the table.
+    Common style for td in that table.*/
+td.picker_td {
+
+}
+
+/* When pickers embedded to the table.
+    Style for td that contains label element.*/
+td.picker_label_td {
+    background-color: #afa049;
+}
+
+/* When pickers embedded to the table.
+    Style for td that contains input element.*/
+td.picker_input_td {
+
+}
+
+/* Any picker labels for input. */
+label.picker_label {
+    font-size: 15pt;
+    font-weight: bold;
+    font-family: Lucida;
+    font-style: italic;
+    background-color: #afa049;
+}
+
+/* Style of label for input in datetime picker */
+lable.picker_datetime_label {
+
+}
+
+/* Style of label for input in duration picker */
+lable.picker_duration_label {
+
+}
+
+/* Any picker input */
+input.picker_input {
+    font-size: 10pt;
+    background-color: #b6f5a6;
+}
+
+/* Style of input in datetime picker */
+input.picker_datetime_input {
+
+}
+
+/* Style of input in duration picker */
+input.picker_duration_input {
+
+}
