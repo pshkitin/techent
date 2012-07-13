@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from  flaskext.wtf import (Form, TextField,
                            FileField, ValidationError, validators)
-
+from wtforms.fields.core import SelectField
 from techent.models import Event
 from mongoengine.queryset import DoesNotExist
 from isodate import parse_datetime
@@ -13,7 +13,7 @@ class EventForm(Form):
     start_date = TextField("Event start", [validators.Required()])
     end_date = TextField("Event end", [validators.Required()])
     description = TextField("Description")
-    location = TextField("Where", [validators.URL()])
+    location = SelectField('City', choices=[('moscow', 'Moscow'), ('saratov', 'Saratov'), ('st_petersburg', 'St.Petersburg'), ('usa_city','USA City')])
     hosts = TextField("Hosts description")
     domain = TextField("Domain", [validators.Required(), validators.URL()])
     tags = TextField("Tags")
