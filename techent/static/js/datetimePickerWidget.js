@@ -24,32 +24,17 @@ function validateDivClassForPicker(containerDiv, datetime_or_duration) {
 
 }
 
-function addPickerToTr(containerDiv, label, input) {
-//    var tdHtml =
-//        '<td class="picker_td picker_label_td"><div class="picker_element_div picker_label_div"/></td>\
-//         <td class="picker_td picker_input_td"><div class="picker_element_div picker_input_div"/></td>'
-    containerDiv.append(tdHtml);
-    containerDiv.find('div.picker_label_div').append(label);
-    containerDiv.find('div.picker_input_div').append(input);
-}
+function createDatetimePicker(dateInput, dateInputId, asTableFragment, onDatetimeChanged) {
 
-function createDatetimePicker(dateInputId, asTableFragment, onDatetimeChanged) {
-    var labelText = '';
-
-//    var randomnumber = Math.floor(Math.random() * 10001);
-    var inputId = "input_datetime_picker_id_";
-
-    var labelItem = $('<label/>').attr('for', inputId).addClass('picker_label picker_datetime_label').text(_getT(labelText));
-    var input = $('<input />').attr('type', 'text').attr('id', inputId).addClass('picker_input picker_datetime_input');
-
-    $(dateInputId).wrap('<div class = "containerEventDate"/>');
-    $containerDiv = $(dateInputId).parent();
+    $(dateInput).wrap('<div class = "containerEventDate"/>');
+    $containerDiv = $(dateInput).parent();
+    var input = $containerDiv.children('#'+dateInputId).addClass('picker_input picker_datetime_input');
 
     if (asTableFragment) {
-        addPickerToTr($containerDiv, labelItem, input);
+        addPickerToTr($containerDiv, input);
     } else {
         validateDivClassForPicker($containerDiv, 'datetime');
-        $containerDiv.append(labelItem, input);
+        $containerDiv.append(input);
     }
 
     var $startDateInput = $containerDiv.find('input.picker_input');

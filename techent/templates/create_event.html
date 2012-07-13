@@ -5,7 +5,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
-        createDatetimePicker($('#start_date'), false, onDatetimeChanged);
+        createDatetimePicker($('#start_date'), "start_date", false, onDatetimeChanged);
+        createDatetimePicker($('#end_date'), "end_date", false, onDatetimeChanged);
 
 // =====This function will be used for sending e-mails if the event's date of time change.======
 //            $logTextAreaVar = $('#logTextArea');
@@ -17,7 +18,7 @@
 </script>
 <style type="text/css">
     body {
-        font-size: 80.5%;
+        font-size: 70.5%;
     }
 </style>
 
