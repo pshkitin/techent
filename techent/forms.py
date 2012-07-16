@@ -6,6 +6,7 @@ from techent.models import Event
 from mongoengine.queryset import DoesNotExist
 from isodate import parse_datetime
 from isodate.isoerror import ISO8601Error
+import datetime
 
 class EventForm(Form):
     subject = TextField("Subject", [validators.Required()])
@@ -43,6 +44,7 @@ class EventForm(Form):
         try:
             # TODO: replase this parser to more strict, because this parser can parse
             # this 2008-09hhkjhkjhjk-03T20:56:35.asdads450686+00:01
-            return parse_datetime(date_string)
+            iso_date_string = datetime.datetime.strptime(date_string, "%d.%m.%Y @ %H:%M").isoformat();
+            return parse_datetime(iso_date_string)
         except (ValueError, ISO8601Error):
             raise ValidationError("Date is in invalid format")
