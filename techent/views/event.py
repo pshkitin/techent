@@ -4,7 +4,6 @@ from flask import Blueprint, request, redirect, url_for, render_template
 from techent.forms import EventForm
 from techent.models import Event, Tag
 from mongoengine.queryset import DoesNotExist
-from isodate import parse_datetime 
 from sets import Set
 
 event = Blueprint("event", __name__)
@@ -14,18 +13,18 @@ def create_event():
     form = EventForm(request.form, csrf_enabled = False) 
     if form.validate_on_submit():
         tags = []
-        if form.tags:
+        if form.tags.data:
             tags = form.tags.data.split(",")
             store_tag_metainformation(tags)
 
-        start_date = parse_datetime(form.start_date.data)
+        start_date = form.iso_date(form.start_date.data)
+        end_date = form.iso_date(form.end_date.data)
         event = Event(subject = form.subject.data,
                         start_date = start_date,
-                        end_date = parse_datetime(form.end_date.data),
+                        end_date = end_date,
                         description = form.description.data,
                         hosts = form.hosts.data,
-                        tags = tags,
-                        time_zone = start_date.utcoffset().total_seconds())
+                        tags = tags)
         if request.files[form.logo.name]:
             event.logo.put(request.files[form.logo.name])
         event.save()

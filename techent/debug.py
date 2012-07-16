@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+from flask_mongoengine import MongoEngine
 import os
 sys.path.append(os.path.join(os.path.realpath(os.path.dirname(__file__)), '../'))
 
