@@ -10,6 +10,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type='text/javascript'></script>
     <script src="{{ url_for('static', filename='js/bootstrap.js') }}" type='text/javascript'></script>
 
+    <script src="{{ url_for('static', filename='js/site.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='js/locale.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='js/locale.ru.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='js/calendar.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='js/messages.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='js/datetimePickerWidget.js') }}" type='text/javascript'></script>
+
+    <script src="{{ url_for('static', filename='jquery/js/jquery-1.6.2.min.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='jquery/js/jquery-ui-1.8.16.custom.min.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='jquery/js/jquery-ui-timepicker-addon.js') }}" type='text/javascript'></script>
+    <script src="{{ url_for('static', filename='jquery/js/i18n/jquery.ui.datepicker-ru.js') }}" type='text/javascript'></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery/css/custom/jquery-ui-1.8.16.custom.css') }}" type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datetimePicker.css') }}" type='text/css'>
+
+
+
+
+
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -32,7 +51,7 @@
                                 TechEvent
                             </a>
                             <ul class="nav">
-                                <li class='active'><a href="#">Create event</a></li>
+                                <li class='active'><a href="{{ url_for('event.create_event') }}">Create event</a></li>
                                 <li><a href="#">Search events</a></li>
                             </ul>
                             <ul class="nav pull-right user">

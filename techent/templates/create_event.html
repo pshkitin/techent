@@ -2,6 +2,26 @@
 {% from "_formhelpers.html" import render_field %}
 {#{% block nav %}{% endblock %}#}
 {% block content %}
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        createDatetimePicker($('#start_date'), "start_date", false, onDatetimeChanged);
+        createDatetimePicker($('#end_date'), "end_date", false, onDatetimeChanged);
+
+// =====This function will be used for sending e-mails if the event's date of time change.======
+//            $logTextAreaVar = $('#logTextArea');
+        function onDatetimeChanged(date) {
+//                var txt = 'Datetime changed:' + date.toString() + '\n';
+//                $logTextAreaVar.val($logTextAreaVar.val() + txt);
+        }
+    });
+</script>
+<style type="text/css">
+    body {
+        font-size: 70.5%;
+    }
+</style>
+
 <div class="container">
     <div class="row">
         <div class="span6 offset3">
@@ -12,7 +32,7 @@
                    {{ render_field(form.start_date)  }} 
                    {{ render_field(form.end_date)  }} 
                    {{ render_field(form.description)  }} 
-                   {{ render_field(form.location)  }} 
+                   {{ render_field(form.location)  }}
                    {{ render_field(form.tags)  }}
                     <button type="submit" class="btn large">Create event</button>
                 </form>
