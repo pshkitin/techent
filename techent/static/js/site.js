@@ -1,0 +1,4 @@
+/**
+ * Site namespace.
+ */
+var globalCalendar = {};
