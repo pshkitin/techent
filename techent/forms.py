@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from  flaskext.wtf import (Form, TextField,
-                           FileField, ValidationError, validators)
+                           FileField, ValidationError, validators, TextAreaField)
 from wtforms.fields.core import SelectField
 from techent.models import Event
 from mongoengine.queryset import DoesNotExist
@@ -17,6 +17,7 @@ class EventForm(Form):
     location = SelectField('City', choices=[('moscow', 'Moscow'), ('saratov', 'Saratov'), ('st_petersburg', 'St.Petersburg'), ('usa_city','USA City')])
     hosts = TextField("Hosts description")
     tags = TextField("Tags")
+    comments = TextField("Comment")
 
     def validate_start_date(self, field):
         self.iso_date(field.data)
@@ -41,3 +42,5 @@ class EventForm(Form):
         except (ValueError, ISO8601Error):
             raise ValidationError("Date is in invalid format")
 
+class CommentForm(Form):
+    comment = TextAreaField("Comment", [validators.Required()])

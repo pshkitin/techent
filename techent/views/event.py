@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, request, redirect, url_for, render_template
 
-from techent.forms import EventForm
+from techent.forms import EventForm, CommentForm
 from techent.models import Event, Tag
 from mongoengine.queryset import DoesNotExist
 from sets import Set
@@ -50,3 +50,8 @@ def store_tag_metainformation(tag_names):
 def show_event(event_id):
     event = Event.objects.with_id(event_id)
     return render_template("show_event.html", event = event)
+
+#def add_comment(id):
+#    form = CommentForm(request.form, csrf_enabled = False)
+#    if form.validate_on_submit():
+

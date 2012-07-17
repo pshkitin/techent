@@ -94,6 +94,11 @@ class Tag(Document):
         "collection": "tags"
     }
 
+class Comment(EmbeddedDocument):
+    author = ReferenceField(User)
+    date = DateTimeField(required = True)
+    text = StringField()
+
 class Event(TimeStampMixin, Document):
     author = ReferenceField(User)
     subject = StringField(required = True)
@@ -104,6 +109,7 @@ class Event(TimeStampMixin, Document):
     location = GeoPointField()
     tags = ListField(StringField())
     time_zone = FloatField() # it's offset from utc in seconds
+    comments = ListField(EmbeddedDocumentField(Comment))
 
     meta = {
             "collection": "events"

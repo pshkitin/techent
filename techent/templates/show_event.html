@@ -11,6 +11,13 @@
                 {{ event.start_date}}
                 <label>End date</label>
                 {{ event.end_date }}
+                <form method="POST" enctype="multipart/form-data">
+                    <div id="comment_area" class="btn-margin-top">
+                        <textarea style="display: block;">
+                        </textarea>
+                        <button type="submit" class="btn large btn-success">Add comment</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
