@@ -1,0 +1,18 @@
+{% extends "_layout.html" %}
+{#{% block nav %}{% endblock %}#}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span6 offset3 well">
+            <div>
+                <label>Subject</label>
+               {{ event.subject }}
+                <label>Start date</label>
+                {{ event.start_date}}
+                <label>End date</label>
+                {{ event.end_date }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -45,3 +45,8 @@ def store_tag_metainformation(tag_names):
         tag.related_tags = list(Set(tag.related_tags) | (related_tags))
 
         tag.save()
+
+@event.route('/event/<event_id>')
+def show_event(event_id):
+    event = Event.objects.with_id(event_id)
+    return render_template("show_event.html", event = event)
