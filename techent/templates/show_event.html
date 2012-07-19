@@ -11,13 +11,31 @@
                 {{ event.start_date}}
                 <label>End date</label>
                 {{ event.end_date }}
-                <form method="POST" enctype="multipart/form-data">
-                    <div id="comment_area" class="btn-margin-top">
-                        <textarea style="display: block;">
-                        </textarea>
-                        <button type="submit" class="btn large btn-success">Add comment</button>
+            <div id="single_event_page">
+               <div class="subject">{{ event.subject }}</div>
+                <div style="float: right;">{{ event.logo }}</div>
+                <div class="float_destroyer"/>
+                <div class="comment_label">Comments</div>
+                <div class="comments">
+                    {% for comment in event.comments %}
+                    <div style="float: left;">
+                        <img src="{{ comment.author.avatar_url }}" alt="">
+                        <span class="author_name">{{ comment.author.full_name }}</span>
                     </div>
-                </form>
+                    <div class="comment_date" style="float: right;">{{ comment.date }}</div>
+                    <div class="float_destroyer"/>
+                    <p class="comment_text">
+                        {{ comment.text }}
+                    </p>
+                    {% endfor %}
+                    <form enctype="multipart/form-data" action="{{ url_for('event.add_comment', event_id = event._id) }}" method="post">
+                        <div class="btn-margin-top">
+                            <textarea id="comment" name="comment" style="display: block;" type="text">
+                            </textarea>
+                            <button type="submit" class="btn large btn-success">Add comment</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

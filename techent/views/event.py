@@ -2,13 +2,17 @@
 from flask import Blueprint, request, redirect, url_for, render_template
 
 from techent.forms import EventForm, CommentForm
-from techent.models import Event, Tag
 from mongoengine.queryset import DoesNotExist
+from techent.models import Event, Tag, Comment, User
 from sets import Set
+from flask_login import login_required, current_user
+from bson.objectid import ObjectId
+import datetime
 
 event = Blueprint("event", __name__)
 
 @event.route("/event", methods = ["GET", "POST"])
+@login_required
 def create_event():
     form = EventForm(request.form, csrf_enabled = False) 
     if form.validate_on_submit():
@@ -19,7 +23,10 @@ def create_event():
 
         start_date = form.iso_date(form.start_date.data)
         end_date = form.iso_date(form.end_date.data)
-        event = Event(subject = form.subject.data,
+        user_id = current_user.id
+        user = User.objects.with_id(ObjectId(user_id))
+        event = Event(author=user,
+                        subject = form.subject.data,
                         start_date = start_date,
                         end_date = end_date,
                         description = form.description.data,
@@ -48,10 +55,17 @@ def store_tag_metainformation(tag_names):
 
 @event.route('/event/<event_id>')
 def show_event(event_id):
-    event = Event.objects.with_id(event_id)
+    event = Event.objects.with_id(ObjectId(event_id))
     return render_template("show_event.html", event = event)
 
-#def add_comment(id):
-#    form = CommentForm(request.form, csrf_enabled = False)
-#    if form.validate_on_submit():
-
+@event.route('/event/<event_id>/comments', methods = ["POST"])
+@login_required
+def add_comment(event_id):
+    form = CommentForm(request.form, csrf_enabled = False)
+    event = Event.objects.with_id(event_id)
+    if form.validate_on_submit():
+        date = datetime.datetime.strptime(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),"%Y-%m-%d %H:%M:%S")
+        comment = Comment(text = form.comment.data, author = User.objects.with_id(ObjectId(current_user.id)), date = date)
+        event.comments.append(comment)
+        event.save()
+    return redirect(url_for('event.show_event', event_id=event_id))

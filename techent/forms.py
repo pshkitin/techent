@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from  flaskext.wtf import (Form, TextField,
-                           FileField, ValidationError, validators, TextAreaField)
+                           FileField, HiddenField, ValidationError, validators)
 from wtforms.fields.core import SelectField
 from techent.models import Event
 from mongoengine.queryset import DoesNotExist
@@ -43,4 +43,5 @@ class EventForm(Form):
             raise ValidationError("Date is in invalid format")
 
 class CommentForm(Form):
-    comment = TextAreaField("Comment", [validators.Required()])
+    comment = TextField("Comment" , [validators.Required()])
+    date = HiddenField("Date")

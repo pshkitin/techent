@@ -4684,3 +4684,64 @@ footer {
   margin-left: 10px;
   list-style: none;
 }
+#single_event_page .subject{
+    /*font-style: italic;*/
+    /*font-size: 16px;*/
+    color: #b03532;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    /*color: #9E8872 !important;*/
+    padding-left: 2px !important;
+    text-shadow: 1px 1px 0 white;
+}
+
+#single_event_page label{
+    color: #755a57;
+    text-shadow: 1px 1px 0 white;
+}
+
+#single_event_page table td label{
+    min-width: 100px;
+}
+
+#single_event_page .comment_label{
+    color: #003153;
+    border-bottom: 1px solid #003153;
+    box-shadow:0 8px 6px -8px #003153;
+}
+
+#single_event_page .comments{
+    margin: 20px;
+}
+
+#single_event_page .comments p{
+    border-bottom: 1px solid #f2e6dc;
+    box-shadow:0 8px 6px -8px #987654;
+}
+
+#single_event_page img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    border: 1px solid white;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+#single_event_page .author_name{
+   font-size: 11px;
+}
+
+#single_event_page .comment_date{
+    font-size: 9px;
+}
+
+#single_event_page .comment_text{
+    margin: 10px;
+    padding-left: 30px;
+}
+
+.float_destroyer{
+    clear: both;
+}
+

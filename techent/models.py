@@ -96,7 +96,7 @@ class Tag(Document):
 
 class Comment(EmbeddedDocument):
     author = ReferenceField(User)
-    date = DateTimeField(required = True)
+    date = DateTimeField()
     text = StringField()
 
 class Event(TimeStampMixin, Document):
