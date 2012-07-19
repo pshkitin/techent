@@ -9,9 +9,9 @@ login = LoginManager()
 login.login_view = "users.login"
 
 @login.user_loader
-def load_user(user_id):
-    user_id = ObjectId(user_id)
-    return User.get(user_id=user_id)
+def load_user(id):
+    id = ObjectId(id)
+    return User.objects.with_id(id)
 
 @login.unauthorized_handler
 def unauthorized():

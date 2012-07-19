@@ -32,7 +32,7 @@
                         <table>
                             {% for event in events %}
                             {{ loop.index }}
-                            {{ event.author }} <br/>
+                            {{ event.author.full_name }} <br/>
                             <a href=" {{ url_for('event.show_event', event_id = event._id) }} ">{{ event.subject }}</a> <br/>
                             {{ event.start_date }} <br/>
                             {{ event.end_date }} <br/>
