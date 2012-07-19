@@ -15,6 +15,59 @@
                <div class="subject">{{ event.subject }}</div>
                 <div style="float: right;">{{ event.logo }}</div>
                 <div class="float_destroyer"/>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Author</label>
+                        </td>
+                        <td>
+                            {{ event.author.full_name }}
+                            <img src="{{ event.author.avatar_url }}" alt=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Description</label>
+                        </td>
+                        <td>
+                            {{ event.description }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Start date</label>
+                        </td>
+                        <td>
+                            {{ event.start_date.strftime("%Y-%m-%d %H:%M") }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>End date</label>
+                        </td>
+                        <td>
+                            {{ event.end_date.strftime("%Y-%m-%d %H:%M") }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Location</label>
+                        </td>
+                        <td>
+                            {{ event.location}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Tags</label>
+                        </td>
+                        <td>
+                            {% for tag in event.tags %}
+                                {{ tag }}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </table>
                 <div class="comment_label">Comments</div>
                 <div class="comments">
                     {% for comment in event.comments %}
